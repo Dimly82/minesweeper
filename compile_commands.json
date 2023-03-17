@@ -1,0 +1,20 @@
+[
+ {
+  "directory": "C:\\Users\\pdimo\\OneDrive\\Documents\\MAI\\2nd Term\\IT\\Project",
+  "arguments": [
+   "gcc",
+   "-c",
+   "main.c"
+  ],
+  "file": "main.c"
+ },
+ {
+  "directory": "C:\\Users\\pdimo\\OneDrive\\Documents\\MAI\\2nd Term\\IT\\Project",
+  "arguments": [
+   "gcc",
+   "-c",
+   "./field/field.c"
+  ],
+  "file": "./field/field.c"
+ }
+]
