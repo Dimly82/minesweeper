@@ -1,1 +1,3 @@
-void GenerateField(int, int*);
+int fieldWidth;
+int DeclareVars(int);
+int GenerateField(int []);
