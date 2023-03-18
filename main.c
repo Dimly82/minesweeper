@@ -12,9 +12,8 @@ int main() {
   for (int i = 0; i < fieldWidth; i++){
     for (int j = 0; j < fieldWidth; j++){
       printf("%d\t", field[i][j]);
-    }
+    } // Местяк вудак
     printf("\n");
   }
   return 0;
-  //11111111
 }
