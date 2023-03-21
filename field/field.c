@@ -1,4 +1,5 @@
-#include <C:/MinGW/include/stdlib.h>
+#include <stdlib.h>
+
 int fieldWidth;
 const int values[] = {10, 19, 20, 29};
 const int sizeOfVals = 4;
