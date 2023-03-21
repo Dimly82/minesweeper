@@ -1,6 +1,6 @@
 #include <C:/MinGW/include/stdlib.h>
 int fieldWidth;
-const int values[] = {11, 12, 21, 22};
+const int values[] = {10, 19, 20, 29};
 const int sizeOfVals = 4;
 
 int DeclareVars(int fieldH){

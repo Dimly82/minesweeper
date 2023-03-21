@@ -3,7 +3,7 @@
 #include <C:/MinGW/include/stdlib.h>
 #include <C:/MinGW/include/time.h>
 #include "./field/field.h"
-
+#include "./interaction/interaction.h"
 
 int main() {
   char difficulty[10] = {};
@@ -12,29 +12,25 @@ int main() {
 
   srand(time(NULL));
 
-  printf("Choose difficulty (easy/hard): ");
-  scanf("%s", difficulty);
-
-  if (strcmp(difficulty, "easy") == 0){
-    fieldWidth = 9;
-    quantityOfMines = 10;
-  } else if (strcmp(difficulty, "hard") == 0){
-    fieldWidth = 16;
-    quantityOfMines = 40;
-  } else {
-    printf("You enetred wrong difficulty.\nAborting...");
-    return 0;
+  int diff = LevelDifficulty();
+  switch (diff) {
+    case 0: {
+      fieldWidth = 9;
+      quantityOfMines = 10;
+      break;
+    }
+    case 1: {
+      fieldWidth = 16;
+      quantityOfMines = 40;
+      break;
+    }
   }
 
   int field[fieldWidth][fieldWidth];
   DeclareVars(fieldWidth);
-  GenerateField(field[0], quantityOfMines);
+  DeclareVarsAg(fieldWidth);
+  GenerateField(field, quantityOfMines);
 
-  for (int i = 0; i < fieldWidth; i++){
-    for (int j = 0; j < fieldWidth; j++){
-      printf("%d\t", field[i][j]);
-    }
-    printf("\n");
-  }
+  PrintArray(field);
   return 0;
 }
