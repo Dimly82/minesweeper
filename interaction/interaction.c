@@ -30,9 +30,6 @@ int LevelDifficulty(){
     return 0;
   } else if (strcmp(difficulty, "hard") == 0){
     return 1;
-  } else {
-    printf("You enetred wrong difficulty.\nAborting...");
-    return -1;
   }
 }
 
