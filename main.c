@@ -33,6 +33,6 @@ int main() {
   
   GenerateField(field, quantityOfMines);
 
-  PrintArray(field);
+  PrintField(field);
   return 0;
 }

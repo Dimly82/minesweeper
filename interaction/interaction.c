@@ -1,7 +1,7 @@
-#include <C:/MinGW/include/stdio.h>
-#include <C:/MinGW/include/string.h>
-#include <C:/MinGW/include/stdlib.h>
-#include <C:/MinGW/include/time.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
 
 int fieldWidth;
@@ -11,7 +11,7 @@ int DeclareVarsAg(int fieldH){
   return 0;
 }
 
-int PrintArray(int array[][fieldWidth]){
+int PrintField(int array[][fieldWidth]){
   for (int i = 0; i < fieldWidth; i++){
     for (int j = 0; j < fieldWidth; j++){
       printf("%d\t", array[i][j]);

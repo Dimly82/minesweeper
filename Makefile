@@ -1,7 +1,7 @@
 TARGET = minesweeper.exe
 CC = gcc
 
-${TARGET} : main.o field.o interaction.o
+${TARGET} : main.o field.o interaction.o checkErr.o
 	${CC} -o .\bin\${TARGET} .\obj\main.o .\obj\field.o .\obj\interaction.o
 
 main.o : main.c
@@ -12,6 +12,9 @@ field.o : .\field\field.c
 
 interaction.o :
 	${CC} -c .\interaction\interaction.c -o .\obj\interaction.o
+
+checkErr.o :
+	${CC} -c .\error\checkErr.c -o .\obj\checkErr.o
 
 clean:
 	del .\obj\*.o ${TARGET}
