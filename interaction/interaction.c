@@ -22,7 +22,7 @@ int PrintField(int array[][fieldWidth]){
 }
 
 int LevelDifficulty(){
-  char difficulty[10] = {};
+  char difficulty[1000] = {};
   printf("Choose difficulty (easy/hard): ");
   scanf("%s", difficulty);
 
@@ -30,6 +30,8 @@ int LevelDifficulty(){
     return 0;
   } else if (strcmp(difficulty, "hard") == 0){
     return 1;
+  } else{
+    return -1;
   }
 }
 

@@ -4,6 +4,7 @@
 #include <time.h>
 #include "./field/field.h"
 #include "./interaction/interaction.h"
+#include "./error/checkErr.h"
 
 int main() {
   int fieldWidth;
@@ -12,6 +13,7 @@ int main() {
   srand(time(NULL));
 
   int diff = LevelDifficulty();
+  CheckErr(diff);
 
   switch (diff) {
     case 0: {
