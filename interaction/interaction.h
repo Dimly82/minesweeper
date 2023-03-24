@@ -1,6 +1,6 @@
-int fieldWidth;
+int fieldHeight;
 int DeclareVarsAg(int);
-int PrintField(int [][fieldWidth]);
+int PrintField(int [][fieldHeight]);
 int LevelDifficulty();
 int NextMove();
 int GameOver(int);

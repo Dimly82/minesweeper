@@ -4,16 +4,16 @@
 #include <time.h>
 
 
-int fieldWidth;
+int fieldHeight1;
 
 int DeclareVarsAg(int fieldH){
-  fieldWidth = fieldH;
+  fieldHeight1 = fieldH;
   return 0;
 }
 
-int PrintField(int array[][fieldWidth]){
-  for (int i = 0; i < fieldWidth; i++){
-    for (int j = 0; j < fieldWidth; j++){
+int PrintField(int array[][fieldHeight1]){
+  for (int i = 0; i < fieldHeight1; i++){
+    for (int j = 0; j < fieldHeight1; j++){
       printf("%d\t", array[i][j]);
     }
     printf("\n");
