@@ -1,1 +1,1 @@
-void CheckErr(int);
+void CheckErr(int, bool *);
