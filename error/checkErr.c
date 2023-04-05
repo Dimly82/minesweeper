@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-void CheckErr(int code, bool *flag
+void CheckErr(int code)
 {
     if (code < 0)
     {
