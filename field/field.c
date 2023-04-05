@@ -71,7 +71,10 @@ int OpenAllCells(int field[][fieldSize1])
     {
         for (int j = 0; j < fieldSize1; j++)
         {
-            field[i][j] += 10;
+            if (field[i][j] <= 19)
+            {
+                field[i][j] += 10;
+            }
         }
     }
     return 0;
@@ -80,13 +83,13 @@ int OpenAllCells(int field[][fieldSize1])
 
 int OpenCell(int field[][fieldSize1], const int coord[])
 {
-    if (field[coord[0]][coord[1]] / 10 == 2) return -3;
-    if ((coord[0] < 0) || (coord[0] >= fieldSize1) || (coord[1] < 0) || (coord[1] >= fieldSize1)) return -4;
-    field[coord[0]][coord[1]] += 10;
-    if (field[coord[0]][coord[1]] == 29)
+    if (field[coord[1]][coord[0]] / 10 == 2) return 1;
+    if ((coord[1] < 0) || (coord[1] >= fieldSize1) || (coord[0] < 0) || (coord[0] >= fieldSize1)) return -3;
+    field[coord[1]][coord[0]] += 10;
+    if (field[coord[1]][coord[0]] == 29)
     {
         OpenAllCells(field);
-        return 1;
+        return 2;
     }
     return 0;
 }

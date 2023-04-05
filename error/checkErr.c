@@ -20,7 +20,7 @@ bool CheckErr(int code)
             }
             case -3:
             {
-                printf("\nYou entered wrong difficulty.\n");
+                printf("\nYou entered coordinates outside the field.\n");
                 return true;
             }
             default:

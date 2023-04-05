@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
@@ -9,14 +8,13 @@
 
 int main()
 {
-    int code = 0;
-    int fieldWidth;
-    int quantityOfMines;
-//    bool flag = false;
+    int code;
+    int fieldWidth = 0;
+    int quantityOfMines = 0;
 
     srand(time(NULL));
 
-    while (true)
+    while (1)
     {
         code = LevelDifficulty();
         if (!CheckErr(code)) break;
@@ -37,6 +35,8 @@ int main()
             quantityOfMines = 40;
             break;
         }
+        default:
+            CheckErr(-9999);
     }
 
     int field[fieldWidth][fieldWidth];
@@ -44,27 +44,21 @@ int main()
     DeclareVars(fieldWidth);
     DeclareVarsAg(fieldWidth);
     GenerateField(field, quantityOfMines);
-    code = PrintField(field);
-    CheckErr(code);
 
-    while (true)
+    while (1)
     {
+        code = PrintField(field);
+        CheckErr(code);
         int coord[2];
         code = NextMove(coord);
         CheckErr(code);
-//        if (field[coord[0]][coord[1]] == 19)
-//        {
-//            printf("You lose");
-//            break;
-//        } else
-//        {
-//            code = PrintField(field);
-//            CheckErr(code);
-//        }
+
         code = OpenCell(field, coord);
 
-        if (CheckErr(code)) continue;
+        system("cls");
 
+        if (CheckErr(code)) continue;
+        if (CheckGameStatus(field, code) == 2) break;
     }
     return 0;
 }
