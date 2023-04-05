@@ -1,29 +1,21 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
+#include "interaction.h"
 
-int fieldHeight1;
-
-int DeclareVarsAg(int fieldH)
-{
-    fieldHeight1 = fieldH;
-    return 0;
-}
-
-int PrintField(int array[][fieldHeight1])
+int PrintField(const int field[], int fieldSize)
 {
     printf("\t");
-    for (int i = 0; i < fieldHeight1; i++)
+    for (int i = 0; i < fieldSize; i++)
     {
         printf("%d\t", i);
     }
     printf("\n");
-    for (int i = 0; i < fieldHeight1; i++)
+    for (int i = 0; i < fieldSize; i++)
     {
         printf("%d\t", i);
-        for (int j = 0; j < fieldHeight1; j++)
+        for (int j = 0; j < fieldSize; j++)
         {
-            switch (array[i][j] / 10)
+            switch (field[i * fieldSize + j] / 10)
             {
                 case 1:
                 {
@@ -32,8 +24,8 @@ int PrintField(int array[][fieldHeight1])
                 }
                 case 2:
                 {
-                    if (array[i][j] == 29) printf("%c\t", 207);
-                    else printf("%d\t", array[i][j] % 10);
+                    if (field[i * fieldSize + j] == 29) printf("%c\t", 207);
+                    else printf("%d\t", field[i * fieldSize + j] % 10);
                     break;
                 }
                 default:
@@ -72,7 +64,7 @@ int NextMove(int arr[])
     return 0;
 }
 
-int CheckGameStatus(int field[][fieldHeight1], int code)
+int CheckGameStatus(int field[], int fieldSize, int code)
 {
     switch (code)
     {
@@ -84,7 +76,7 @@ int CheckGameStatus(int field[][fieldHeight1], int code)
         case 2:
         {
             printf("You blew up :(\n");
-            PrintField(field);
+            PrintField(field, fieldSize);
             return 2;
         }
         default:

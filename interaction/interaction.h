@@ -1,11 +1,7 @@
-int fieldHeight;
-
-int DeclareVarsAg(int);
-
-int PrintField(int [][fieldHeight]);
+int PrintField(const int [], int);
 
 int LevelDifficulty();
 
 int NextMove(int []);
 
-int CheckGameStatus(int [][fieldHeight], int);
+int CheckGameStatus(int [], int, int);

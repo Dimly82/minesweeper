@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include "checkErr.h"
 
-bool CheckErr(int code)
+int CheckErr(int code)
 {
     if (code < 0)
     {
@@ -11,7 +11,7 @@ bool CheckErr(int code)
             case -1:
             {
                 printf("\nYou entered wrong difficulty.\n");
-                return true;
+                return 1;
             }
             case -2:
             {
@@ -21,7 +21,7 @@ bool CheckErr(int code)
             case -3:
             {
                 printf("\nYou entered coordinates outside the field.\n");
-                return true;
+                return 1;
             }
             default:
                 printf("Unexpected error!\n");
@@ -29,5 +29,5 @@ bool CheckErr(int code)
         }
 
     }
-    return false;
+    return 0;
 }

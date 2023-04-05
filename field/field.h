@@ -1,12 +1,3 @@
-int fieldSize;
-
-/**
- * @brief Declares variables
- * @param fieldSize1 size of field
- * @return int 0 if success
- */
-int DeclareVars(int);
-
 /**
  * @brief Counts mines around cell
  * @param field field
@@ -14,7 +5,7 @@ int DeclareVars(int);
  * @param y y coordinate
  * @return int 0 if success
  */
-int CountMinesAround(int[][fieldSize], int, int);
+int CountMinesAround(int[], int, int, int);
 
 /**
  * @brief Generates field
@@ -22,14 +13,14 @@ int CountMinesAround(int[][fieldSize], int, int);
  * @param quantityOfMines quantity of mines
  * @return int 0 if success
  */
-int GenerateField(int[][fieldSize], int);
+int GenerateField(int[], int, int);
 
 /**
  * @brief Makes all cells open
  * @param field field
  * @return int 0 if success, 1 if mine was opened
  */
-int OpenAllCells(int[][fieldSize]);
+int OpenAllCells(int[], int);
 
 /**
  * @brief Opens cell
@@ -37,4 +28,4 @@ int OpenAllCells(int[][fieldSize]);
  * @param coord coordinates
  * @return int 0 if success
  */
-int OpenCell(int[][fieldSize], const int[]);
+int OpenCell(int[], int, const int[]);
