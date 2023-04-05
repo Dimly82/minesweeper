@@ -12,15 +12,14 @@ int main()
     int code = 0;
     int fieldWidth;
     int quantityOfMines;
-    bool flag = false;
+//    bool flag = false;
 
     srand(time(NULL));
 
     while (true)
     {
         code = LevelDifficulty();
-        CheckErr(code, &flag);
-        if (!flag) break;
+        if (!CheckErr(code)) break;
     }
 
 
@@ -46,13 +45,13 @@ int main()
     DeclareVarsAg(fieldWidth);
     GenerateField(field, quantityOfMines);
     code = PrintField(field);
-    CheckErr(code, &flag);
+    CheckErr(code);
 
     while (true)
     {
         int coord[2];
         code = NextMove(coord);
-        CheckErr(code, &flag);
+        CheckErr(code);
 //        if (field[coord[0]][coord[1]] == 19)
 //        {
 //            printf("You lose");
@@ -63,8 +62,8 @@ int main()
 //            CheckErr(code);
 //        }
         code = OpenCell(field, coord);
-        CheckErr(code, &flag);
-        if (flag) continue;
+
+        if (CheckErr(code)) continue;
 
     }
     return 0;
