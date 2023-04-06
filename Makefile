@@ -16,5 +16,14 @@ interaction.o : ./interaction/interaction.c
 checkErr.o : ./error/checkErr.c
 	${CC} -c ./error/checkErr.c -o ./obj/checkErr.o
 
+field : field.o
+	ar rcs ./field/field.a ./obj/field.o
+
+interaction : interaction.o
+	ar rcs ./interaction/interaction.a ./obj/interaction.o
+
+error : checkErr.o
+	ar rcs ./error/checkErr.a ./obj/checkErr.o
+
 clean:
 	del ./obj/*.o ${TARGET}
