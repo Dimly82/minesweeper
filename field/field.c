@@ -80,8 +80,8 @@ int OpenAllCells(int field[], int fieldSize)
 
 int OpenCell(int field[], int fieldSize, const int coord[])
 {
-    if (field[coord[1] * fieldSize + coord[0]] / 10 == 2) return 1;
     if ((coord[1] < 0) || (coord[1] >= fieldSize) || (coord[0] < 0) || (coord[0] >= fieldSize)) return -3;
+    if (field[coord[1] * fieldSize + coord[0]] / 10 == 2) return 1;
     field[coord[1] * fieldSize + coord[0]] += 10;
     if (field[coord[1] * fieldSize + coord[0]] == 29)
     {
