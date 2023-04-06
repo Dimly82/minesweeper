@@ -15,12 +15,17 @@ int CheckErr(int code)
             }
             case -2:
             {
-                printf("\nYou entered wrong difficulty.\nExploding your PC..\n");
+                printf("\nError while printing field.\nExploding your PC..\n");
                 exit(-2);
             }
             case -3:
             {
                 printf("\nYou entered coordinates outside the field.\n");
+                return 1;
+            }
+            case -4:
+            {
+                printf("\nYou entered incorrect symbol.\n");
                 return 1;
             }
             default:
