@@ -31,6 +31,7 @@ int PrintField(const int field[], int fieldSize)
                 default:
                     return -2;
             }
+//            printf("%d\t", field[i * fieldSize + j]);
         }
         printf("\n");
     }
@@ -78,6 +79,12 @@ int CheckGameStatus(int field[], int fieldSize, int code)
             printf("You blew up :(\n");
             PrintField(field, fieldSize);
             return 2;
+        }
+        case 3:
+        {
+            printf("You won!\n");
+            PrintField(field, fieldSize);
+            return 3;
         }
         default:
             return 0;

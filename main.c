@@ -6,6 +6,7 @@
 int main()
 {
     int code;
+    int gCode;
     int fieldSize = 0;
     int quantityOfMines = 0;
 
@@ -44,14 +45,15 @@ int main()
         CheckErr(code);
         int coord[2];
         code = NextMove(coord);
-        CheckErr(code);
+        if (CheckErr(code)) continue;
 
         code = OpenCell(field, fieldSize, coord);
 
         system("cls");
 
         if (CheckErr(code)) continue;
-        if (CheckGameStatus(field, fieldSize, code) == 2) break;
+        gCode = CheckGameStatus(field, fieldSize, code);
+        if (gCode == 2 || gCode == 3) break;
     }
     return 0;
 }

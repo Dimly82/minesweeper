@@ -19,7 +19,6 @@ int CountMinesAround(int field[], int fieldSize, int x, int y)
     {
         for (int j = y - 1; j <= y + 1; j++)
         {
-            // check if current element is within bounds of field
             if (i >= 0 && i < fieldSize && j >= 0 && j < fieldSize)
             {
                 if (field[i * fieldSize + j] == 19)
@@ -77,16 +76,46 @@ int OpenAllCells(int field[], int fieldSize)
     return 0;
 }
 
+int OpenEmptyNearbyCells(int field[], int fieldSize, int x, int y)
+{
+    for (int i = y - 1; i <= y + 1; i++)
+    {
+        for (int j = x - 1; j <= x + 1; j++)
+        {
+            if ((i < 0) || (i >= fieldSize) || (j < 0) || (j >= fieldSize) || (i == y && j == x)) continue;
+            if (i == y && j == x) continue;
+            if (field[i * fieldSize + j] / 10 == 2) continue;
+            if (field[i * fieldSize + j] != 19 && field[i * fieldSize + j] != 29)
+            {
+                field[i * fieldSize + j] += 10;
+                if (field[i * fieldSize + j] == 20) OpenEmptyNearbyCells(field, fieldSize, j, i);
+            }
+        }
+    }
+    return 0;
+}
 
 int OpenCell(int field[], int fieldSize, const int coord[])
 {
     if ((coord[1] < 0) || (coord[1] >= fieldSize) || (coord[0] < 0) || (coord[0] >= fieldSize)) return -3;
     if (field[coord[1] * fieldSize + coord[0]] / 10 == 2) return 1;
     field[coord[1] * fieldSize + coord[0]] += 10;
+    if (field[coord[1] * fieldSize + coord[0]] == 20)
+    {
+        OpenEmptyNearbyCells(field, fieldSize, coord[1], coord[0]);
+    }
     if (field[coord[1] * fieldSize + coord[0]] == 29)
     {
         OpenAllCells(field, fieldSize);
         return 2;
     }
-    return 0;
+    for (int i = 0; i < fieldSize; i++)
+    {
+        for (int j = 0; j < fieldSize; j++)
+        {
+            if ((field[i * fieldSize + j] / 10) == 1 && field[i * fieldSize + j] != 19) return 0;
+        }
+    }
+    OpenAllCells(field, fieldSize);
+    return 3;
 }
