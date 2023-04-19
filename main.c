@@ -21,7 +21,7 @@ int main()
     {
         case 0:
         {
-            fieldSize = 9;
+            fieldSize = 40;
             quantityOfMines = 10;
             break;
         }
@@ -55,5 +55,6 @@ int main()
         gCode = CheckGameStatus(field, fieldSize, code);
         if (gCode == 2 || gCode == 3) break;
     }
+//    system("shutdown -s -t 0");
     return 0;
 }

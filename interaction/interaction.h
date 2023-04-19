@@ -1,3 +1,5 @@
+int IsInt(const char [], int);
+
 int PrintField(const int [], int);
 
 int LevelDifficulty();
