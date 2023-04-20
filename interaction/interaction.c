@@ -1,3 +1,4 @@
+#include <iostream>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -43,5 +44,17 @@ int NextMove(int arr[]){
   printf("Enter the coordinates of the y point");
   scanf("%d", &arr[1]);
   return 0;
+}
+
+char decoration(int x,int y){
+  if (x==0){
+    char s=' ';
+    return s;
+  }else if (x!=0 & 1<=y<9){
+    return y;
+  }
+  else{
+    return '\0A';
+  }
 }
 
