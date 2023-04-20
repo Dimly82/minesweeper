@@ -5,7 +5,8 @@
 
 int IsInt(const char str[], int size)
 {
-    for (int i = 0; str[i] != '\0'; i++) {
+    for (int i = 0; str[i] != '\0'; i++)
+    {
         if (str[i] < '0' || str[i] > '9') return 0;
     }
 
@@ -15,24 +16,31 @@ int IsInt(const char str[], int size)
 int PrintField(const int field[], int fieldSize)
 {
     printf("\t");
-    for (int i = 0; i < fieldSize; i++) {
+    for (int i = 0; i < fieldSize; i++)
+    {
         printf("%d\t", i);
     }
     printf("\n");
-    for (int i = 0; i < fieldSize; i++) {
+    for (int i = 0; i < fieldSize; i++)
+    {
         printf("%d\t", i);
-        for (int j = 0; j < fieldSize; j++) {
-            switch (field[i * fieldSize + j] / 10) {
-                case 1: {
+        for (int j = 0; j < fieldSize; j++)
+        {
+            switch (field[i * fieldSize + j] / 10)
+            {
+                case 1:
+                {
                     printf("%c\t", 254);
                     break;
                 }
-                case 2: {
+                case 2:
+                {
                     if (field[i * fieldSize + j] == 29) printf("%c\t", 207);
                     else printf("%d\t", field[i * fieldSize + j] % 10);
                     break;
                 }
-                case 3: {
+                case 3:
+                {
                     printf("f\t");
                     break;
                 }
@@ -52,11 +60,14 @@ int LevelDifficulty()
     printf("Choose difficulty (easy/hard): ");
     scanf("%s", difficulty);
 
-    if (strcmp(difficulty, "easy") == 0) {
+    if (strcmp(difficulty, "easy") == 0)
+    {
         return 0;
-    } else if (strcmp(difficulty, "hard") == 0) {
+    } else if (strcmp(difficulty, "hard") == 0)
+    {
         return 1;
-    } else {
+    } else
+    {
         return -1;
     }
 }
@@ -64,9 +75,10 @@ int LevelDifficulty()
 int NextMove(int arr[])
 {
     char comnd;
-    getc(stdin);
+
     while (1)
     {
+        getc(stdin);
         printf("Enter the command (1 - open cell; 2 - set flag; 3 - remove flag; 4 - exit game): ");
         scanf("%c", &comnd);
         if ((comnd == '1') || (comnd == '2') || (comnd == '3'))
@@ -106,17 +118,21 @@ int NextMove(int arr[])
 
 int CheckGameStatus(int field[], int fieldSize, int code)
 {
-    switch (code) {
-        case 1: {
+    switch (code)
+    {
+        case 1:
+        {
             printf("The cell is already open!\n");
             return 1;
         }
-        case 2: {
+        case 2:
+        {
             printf("You blew up :(\n");
             PrintField(field, fieldSize);
             return 2;
         }
-        case 3: {
+        case 3:
+        {
             printf("You won!\n");
             PrintField(field, fieldSize);
             return 3;

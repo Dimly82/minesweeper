@@ -4,7 +4,7 @@
  * @param fieldSize field size
  * @param x x coordinate
  * @param y y coordinate
- * @return int 0 if success
+ * @return int 0
  */
 int CountMinesAround(int[], int, int, int);
 
@@ -13,7 +13,7 @@ int CountMinesAround(int[], int, int, int);
  * @param field field
  * @param fieldSize field size
  * @param quantityOfMines quantity of mines
- * @return int 0 if success
+ * @return int 0
  */
 int GenerateField(int[], int, int);
 
@@ -21,7 +21,7 @@ int GenerateField(int[], int, int);
  * @brief Makes all cells open
  * @param field field
  * @param fieldSize field size
- * @return int 0 if success, 1 if mine was opened
+ * @return int 0
  */
 int OpenAllCells(int[], int);
 
@@ -31,7 +31,7 @@ int OpenAllCells(int[], int);
  * @param fieldSize field size
  * @param x x coordinate
  * @param y y coordinate
- * @return int 0 if success
+ * @return int 0
  */
 int OpenEmptyNearbyCells(int[], int, int, int);
 

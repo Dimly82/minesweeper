@@ -1,8 +1,8 @@
-/*
-* @brief IsInt функция проверки строки на число
-* @param str[] строка
-* @param size размер строки
-* @return 1 если число, 0 если не число
+/**
+*@brief IsInt функция проверки строки на число
+*@param str[] строка
+*@param size размер строки
+*@return 1 если число, 0 если не число
 */
 int IsInt(const char [], int);
 
