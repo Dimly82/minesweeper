@@ -32,6 +32,10 @@ int PrintField(const int field[], int fieldSize)
                     else printf("%d\t", field[i * fieldSize + j] % 10);
                     break;
                 }
+                case 3: {
+                    printf("f\t");
+                    break;
+                }
                 default:
                     return -2;
             }
@@ -59,16 +63,43 @@ int LevelDifficulty()
 
 int NextMove(int arr[])
 {
-    char tmp[2] = {};
-    printf("Enter the coordinates of the x point: ");
-    scanf("%s", tmp);
-    if (!IsInt(tmp, 2)) return -4;
-    arr[0] = atoi(tmp);
+    char comnd;
+    getc(stdin);
+    while (1)
+    {
+        printf("Enter the command (1 - open cell; 2 - set flag; 3 - remove flag; 4 - exit game): ");
+        scanf("%c", &comnd);
+        if ((comnd == '1') || (comnd == '2') || (comnd == '3'))
+        {
+            char tmp[2] = {};
+            printf("Enter the coordinates of the x point: ");
+            scanf("%s", tmp);
+            if (!IsInt(tmp, 2)) return -4;
+            arr[0] = atoi(tmp);
 
-    printf("Enter the coordinates of the y point: ");
-    scanf("%s", tmp);
-    if (!IsInt(tmp, 2)) return -4;
-    arr[1] = atoi(tmp);
+            printf("Enter the coordinates of the y point: ");
+            scanf("%s", tmp);
+            if (!IsInt(tmp, 2)) return -4;
+            arr[1] = atoi(tmp);
+            return (comnd == '1') ? 0 : (comnd == '2') ? 1 : 2;
+        } else if (comnd == '4')
+        {
+            return 3;
+        } else
+        {
+            printf("Invalid command!\n");
+        }
+    }
+//    char tmp[2] = {};
+//    printf("Enter the coordinates of the x point: ");
+//    scanf("%s", tmp);
+//    if (!IsInt(tmp, 2)) return -4;
+//    arr[0] = atoi(tmp);
+//
+//    printf("Enter the coordinates of the y point: ");
+//    scanf("%s", tmp);
+//    if (!IsInt(tmp, 2)) return -4;
+//    arr[1] = atoi(tmp);
 
     return 0;
 }
@@ -89,6 +120,16 @@ int CheckGameStatus(int field[], int fieldSize, int code)
             printf("You won!\n");
             PrintField(field, fieldSize);
             return 3;
+        }
+        case 4:
+        {
+            printf("The cell is already flagged!\n");
+            return 0;
+        }
+        case 5:
+        {
+            printf("The cell is already unflagged!\n");
+            return 0;
         }
         default:
             return 0;

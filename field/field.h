@@ -40,6 +40,24 @@ int OpenEmptyNearbyCells(int[], int, int, int);
  * @param field field
  * @param fieldSize field size
  * @param coord coordinates
- * @return int 0 if success
+ * @return int 0 if success, 1 if cell is already open, 2 if mine was opened, 3 if win, -3 if coordinates are out of field
  */
 int OpenCell(int[], int, const int[]);
+
+/**
+ * @brief Sets flag
+ * @param field field
+ * @param fieldSize field size
+ * @param coord coordinates
+ * @return int 0 if success, 1 if cell is already open, 4 if flag is already set, -3 if coordinates are out of field
+ */
+int SetFlag(int[], int, const int[]);
+
+/**
+ * @brief Removes flag
+ * @param field field
+ * @param fieldSize field size
+ * @param coord coordinates
+ * @return int 0 if success, 1 if cell is opened, 5 if flag is not set, -3 if coordinates are out of field
+ */
+int RemoveFlag(int[], int, const int[]);

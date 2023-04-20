@@ -119,3 +119,21 @@ int OpenCell(int field[], int fieldSize, const int coord[])
     OpenAllCells(field, fieldSize);
     return 3;
 }
+
+int SetFlag(int field[], int fieldSize, const int coord[])
+{
+    if ((coord[1] < 0) || (coord[1] >= fieldSize) || (coord[0] < 0) || (coord[0] >= fieldSize)) return -3;
+    if (field[coord[1] * fieldSize + coord[0]] / 10 == 2) return 1;
+    if (field[coord[1] * fieldSize + coord[0]] / 10 == 1) field[coord[1] * fieldSize + coord[0]] += 20;
+    else if (field[coord[1] * fieldSize + coord[0]] / 10 == 3) return 4;
+    return 0;
+}
+
+int RemoveFlag(int field[], int fieldSize, const int coord[])
+{
+    if ((coord[1] < 0) || (coord[1] >= fieldSize) || (coord[0] < 0) || (coord[0] >= fieldSize)) return -3;
+    if (field[coord[1] * fieldSize + coord[0]] / 10 == 2) return 1;
+    if (field[coord[1] * fieldSize + coord[0]] / 10 == 3) field[coord[1] * fieldSize + coord[0]] -= 20;
+    else if (field[coord[1] * fieldSize + coord[0]] / 10 == 1) return 5;
+    return 0;
+}

@@ -21,7 +21,7 @@ int main()
     {
         case 0:
         {
-            fieldSize = 40;
+            fieldSize = 9;
             quantityOfMines = 10;
             break;
         }
@@ -47,11 +47,36 @@ int main()
         code = NextMove(coord);
         if (CheckErr(code)) continue;
 
-        code = OpenCell(field, fieldSize, coord);
+        switch (code)
+        {
+            case 0:
+            {
+                code = OpenCell(field, fieldSize, coord);
+                if (CheckErr(code)) continue;
+                break;
+            }
+            case 1:
+            {
+                code = SetFlag(field, fieldSize, coord);
+                if (CheckErr(code)) continue;
+                break;
+            }
+            case 2:
+            {
+                code = RemoveFlag(field, fieldSize, coord);
+                if (CheckErr(code)) continue;
+                break;
+            }
+            case 3:
+            {
+                return 0;
+            }
+            default:
+                CheckErr(-9999);
+        }
 
         system("cls");
 
-        if (CheckErr(code)) continue;
         gCode = CheckGameStatus(field, fieldSize, code);
         if (gCode == 2 || gCode == 3) break;
     }
