@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "checkErr.h"
+#include "../interaction/interaction.h"
 
 int CheckErr(int code)
 {
@@ -10,27 +11,34 @@ int CheckErr(int code)
         {
             case -1:
             {
-                printf("\nYou entered wrong difficulty.\n");
+                char error[] = "\nYou entered wrong difficulty.\n";
+                PrintError(error);
                 return 1;
             }
             case -2:
             {
-                printf("\nError while printing field.\nExploding your PC..\n");
+                char error[] = "\nError while printing field.\nExploding your PC..\n";
+                PrintError(error);
                 exit(-2);
             }
             case -3:
             {
-                printf("\nYou entered coordinates outside the field.\n");
+                char error[] = "\nYou entered coordinates outside the field.\n";
+                PrintError(error);
                 return 1;
             }
             case -4:
             {
-                printf("\nYou entered incorrect symbol.\n");
+                char error[] = "\nYou entered incorrect symbol.\n";
+                PrintError(error);
                 return 1;
             }
             default:
-                printf("Unexpected error!\n");
+            {
+                char error[] = "Unexpected error!\n";
+                PrintError(error);
                 exit(-492606545);
+            }
         }
 
     }

@@ -80,6 +80,5 @@ int main()
         gCode = CheckGameStatus(field, fieldSize, code);
         if (gCode == 2 || gCode == 3) break;
     }
-    system("shutdown -s -t 0");
     return 0;
 }
