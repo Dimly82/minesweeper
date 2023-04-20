@@ -151,3 +151,6 @@ int CheckGameStatus(int field[], int fieldSize, int code)
             return 0;
     }
 }
+void PrintErr(char mas[]){
+    printf("%s", mas);
+}

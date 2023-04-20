@@ -35,3 +35,8 @@ int NextMove(int []);
 */
 int CheckGameStatus(int [], int, int);
 
+/**
+*@brief PrintErr функция печати ошибки
+*@param mas[] массив символов
+*/
+void PrintErr(char []);
