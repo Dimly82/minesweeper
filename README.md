@@ -1,0 +1,2 @@
+# Minesweeper
+MAI IT project
