@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <conio.h>
+#include <windows.h>
 #include "interaction.h"
 
 int IsInt(const char str[], int size)
@@ -102,18 +104,6 @@ int NextMove(int arr[])
             printf("Invalid command!\n");
         }
     }
-//    char tmp[2] = {};
-//    printf("Enter the coordinates of the x point: ");
-//    scanf("%s", tmp);
-//    if (!IsInt(tmp, 2)) return -4;
-//    arr[0] = atoi(tmp);
-//
-//    printf("Enter the coordinates of the y point: ");
-//    scanf("%s", tmp);
-//    if (!IsInt(tmp, 2)) return -4;
-//    arr[1] = atoi(tmp);
-
-    return 0;
 }
 
 int CheckGameStatus(int field[], int fieldSize, int code)
@@ -135,6 +125,7 @@ int CheckGameStatus(int field[], int fieldSize, int code)
         {
             printf("You won!\n");
             PrintField(field, fieldSize);
+            PlaySound("Congratulations.wav", NULL, SND_ASYNC);
             return 3;
         }
         case 4:
@@ -152,6 +143,7 @@ int CheckGameStatus(int field[], int fieldSize, int code)
     }
 }
 
-void PrintError(char mas[]){
+void PrintError(char mas[])
+{
     printf("%s", mas);
 }
