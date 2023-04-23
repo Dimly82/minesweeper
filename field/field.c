@@ -113,7 +113,7 @@ int OpenCell(int field[], int fieldSize, const int coord[])
     {
         for (int j = 0; j < fieldSize; j++)
         {
-            if ((field[i * fieldSize + j] / 10) == 1 && field[i * fieldSize + j] != 19) return 0;
+            if (((field[i * fieldSize + j] / 10) == 1 && field[i * fieldSize + j] != 19) || ((field[i * fieldSize + j] / 10) == 3 && field[i * fieldSize + j] != 39)) return 0;
         }
     }
     OpenAllCells(field, fieldSize);
