@@ -76,7 +76,6 @@ int main()
         }
 
         system("cls");
-
         gCode = CheckGameStatus(field, fieldSize, code);
         if (gCode == 2 || gCode == 3) break;
     }

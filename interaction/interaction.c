@@ -80,9 +80,8 @@ int NextMove(int arr[])
 
     while (1)
     {
-        getc(stdin);
         printf("Enter the command (1 - open cell; 2 - set flag; 3 - remove flag; 4 - exit game): ");
-        scanf("%c", &comnd);
+        scanf("%s", &comnd);
         if ((comnd == '1') || (comnd == '2') || (comnd == '3'))
         {
             char tmp[2] = {};
@@ -145,5 +144,6 @@ int CheckGameStatus(int field[], int fieldSize, int code)
 
 void PrintError(char mas[])
 {
+    system("cls");
     printf("%s", mas);
 }

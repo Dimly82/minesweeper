@@ -5,6 +5,18 @@
 const int values[] = {10, 19, 20, 29};
 const int sizeOfVals = 4;
 
+int CheckForWin(const int field[], int fieldSize)
+{
+    for (int i = 0; i < fieldSize; i++)
+    {
+        for (int j = 0; j < fieldSize; j++)
+        {
+            if (field[i * fieldSize + j] / 10 == 1) return 0;
+        }
+    }
+    return 1;
+}
+
 int CountMinesAround(int field[], int fieldSize, int x, int y)
 {
 
@@ -109,15 +121,22 @@ int OpenCell(int field[], int fieldSize, const int coord[])
         OpenAllCells(field, fieldSize);
         return 2;
     }
-    for (int i = 0; i < fieldSize; i++)
+//    for (int i = 0; i < fieldSize; i++)
+//    {
+//        for (int j = 0; j < fieldSize; j++)
+//        {
+//            if (((field[i * fieldSize + j] / 10) == 1 && field[i * fieldSize + j] != 19) || ((field[i * fieldSize + j] / 10) == 3 && field[i * fieldSize + j] != 39)) return 0;
+//        }
+//    }
+//    OpenAllCells(field, fieldSize);
+//    return 3;
+
+    if (CheckForWin(field, fieldSize))
     {
-        for (int j = 0; j < fieldSize; j++)
-        {
-            if (((field[i * fieldSize + j] / 10) == 1 && field[i * fieldSize + j] != 19) || ((field[i * fieldSize + j] / 10) == 3 && field[i * fieldSize + j] != 39)) return 0;
-        }
+        OpenAllCells(field, fieldSize);
+        return 3;
     }
-    OpenAllCells(field, fieldSize);
-    return 3;
+    return 0;
 }
 
 int SetFlag(int field[], int fieldSize, const int coord[])
@@ -126,6 +145,11 @@ int SetFlag(int field[], int fieldSize, const int coord[])
     if (field[coord[1] * fieldSize + coord[0]] / 10 == 2) return 1;
     if (field[coord[1] * fieldSize + coord[0]] / 10 == 1) field[coord[1] * fieldSize + coord[0]] += 20;
     else if (field[coord[1] * fieldSize + coord[0]] / 10 == 3) return 4;
+    if (CheckForWin(field, fieldSize))
+    {
+        OpenAllCells(field, fieldSize);
+        return 3;
+    }
     return 0;
 }
 

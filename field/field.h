@@ -1,4 +1,12 @@
 /**
+ * @brief Checks if game is won
+ * @param field field
+ * @param fieldSize field size
+ * @return 0 if game is not won, 1 if game is won
+ */
+int CheckForWin(const int[], int);
+
+/**
  * @brief Counts mines around cell
  * @param field field
  * @param fieldSize field size
