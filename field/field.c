@@ -12,6 +12,7 @@ int CheckForWin(const int field[], int fieldSize)
         for (int j = 0; j < fieldSize; j++)
         {
             if (field[i * fieldSize + j] / 10 == 1) return 0;
+            if (field[i * fieldSize + j] / 10 == 3 && field[i * fieldSize + j] % 10 != 9) return 0;
         }
     }
     return 1;
@@ -79,10 +80,8 @@ int OpenAllCells(int field[], int fieldSize)
     {
         for (int j = 0; j < fieldSize; j++)
         {
-            if (field[i * fieldSize + j] <= 19)
-            {
-                field[i * fieldSize + j] += 10;
-            }
+            if (field[i * fieldSize + j] / 10 == 1) field[i * fieldSize + j] += 10;
+            if (field[i * fieldSize + j] / 10 == 3) field[i * fieldSize + j] -= 10;
         }
     }
     return 0;
@@ -96,7 +95,7 @@ int OpenEmptyNearbyCells(int field[], int fieldSize, int x, int y)
         {
             if ((i < 0) || (i >= fieldSize) || (j < 0) || (j >= fieldSize) || (i == y && j == x)) continue;
             if (i == y && j == x) continue;
-            if (field[i * fieldSize + j] / 10 == 2) continue;
+            if ((field[i * fieldSize + j] / 10 == 2) || field[i * fieldSize + j] / 10 == 3) continue;
             if (field[i * fieldSize + j] != 19 && field[i * fieldSize + j] != 29)
             {
                 field[i * fieldSize + j] += 10;
@@ -110,7 +109,8 @@ int OpenEmptyNearbyCells(int field[], int fieldSize, int x, int y)
 int OpenCell(int field[], int fieldSize, const int coord[])
 {
     if ((coord[1] < 0) || (coord[1] >= fieldSize) || (coord[0] < 0) || (coord[0] >= fieldSize)) return -3;
-    if (field[coord[1] * fieldSize + coord[0]] / 10 == 2) return 1;
+    if ((field[coord[1] * fieldSize + coord[0]] / 10 == 2) || (field[coord[1] * fieldSize + coord[0]] / 10 == 3))
+        return 1;
     field[coord[1] * fieldSize + coord[0]] += 10;
     if (field[coord[1] * fieldSize + coord[0]] == 20)
     {
@@ -121,15 +121,6 @@ int OpenCell(int field[], int fieldSize, const int coord[])
         OpenAllCells(field, fieldSize);
         return 2;
     }
-//    for (int i = 0; i < fieldSize; i++)
-//    {
-//        for (int j = 0; j < fieldSize; j++)
-//        {
-//            if (((field[i * fieldSize + j] / 10) == 1 && field[i * fieldSize + j] != 19) || ((field[i * fieldSize + j] / 10) == 3 && field[i * fieldSize + j] != 39)) return 0;
-//        }
-//    }
-//    OpenAllCells(field, fieldSize);
-//    return 3;
 
     if (CheckForWin(field, fieldSize))
     {
@@ -139,12 +130,15 @@ int OpenCell(int field[], int fieldSize, const int coord[])
     return 0;
 }
 
-int SetFlag(int field[], int fieldSize, const int coord[])
+int SetFlag(int field[], int fieldSize, const int coord[], int *quantityOfMines)
 {
     if ((coord[1] < 0) || (coord[1] >= fieldSize) || (coord[0] < 0) || (coord[0] >= fieldSize)) return -3;
     if (field[coord[1] * fieldSize + coord[0]] / 10 == 2) return 1;
-    if (field[coord[1] * fieldSize + coord[0]] / 10 == 1) field[coord[1] * fieldSize + coord[0]] += 20;
-    else if (field[coord[1] * fieldSize + coord[0]] / 10 == 3) return 4;
+    if (field[coord[1] * fieldSize + coord[0]] / 10 == 1)
+    {
+        field[coord[1] * fieldSize + coord[0]] += 20;
+        (*quantityOfMines)--;
+    } else if (field[coord[1] * fieldSize + coord[0]] / 10 == 3) return 4;
     if (CheckForWin(field, fieldSize))
     {
         OpenAllCells(field, fieldSize);
@@ -153,11 +147,19 @@ int SetFlag(int field[], int fieldSize, const int coord[])
     return 0;
 }
 
-int RemoveFlag(int field[], int fieldSize, const int coord[])
+int RemoveFlag(int field[], int fieldSize, const int coord[], int *quantityOfMines)
 {
     if ((coord[1] < 0) || (coord[1] >= fieldSize) || (coord[0] < 0) || (coord[0] >= fieldSize)) return -3;
     if (field[coord[1] * fieldSize + coord[0]] / 10 == 2) return 1;
-    if (field[coord[1] * fieldSize + coord[0]] / 10 == 3) field[coord[1] * fieldSize + coord[0]] -= 20;
-    else if (field[coord[1] * fieldSize + coord[0]] / 10 == 1) return 5;
+    if (field[coord[1] * fieldSize + coord[0]] / 10 == 3)
+    {
+        field[coord[1] * fieldSize + coord[0]] -= 20;
+        (*quantityOfMines)++;
+    } else if (field[coord[1] * fieldSize + coord[0]] / 10 == 1) return 5;
+    if (CheckForWin(field, fieldSize))
+    {
+        OpenAllCells(field, fieldSize);
+        return 3;
+    }
     return 0;
 }

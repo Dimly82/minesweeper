@@ -57,15 +57,17 @@ int OpenCell(int[], int, const int[]);
  * @param field field
  * @param fieldSize field size
  * @param coord coordinates
+ * @param quantityOfMines quantity of mines
  * @return int 0 if success, 1 if cell is already open, 4 if flag is already set, -3 if coordinates are out of field
  */
-int SetFlag(int[], int, const int[]);
+int SetFlag(int[], int, const int[], int *);
 
 /**
  * @brief Removes flag
  * @param field field
  * @param fieldSize field size
  * @param coord coordinates
+ * @param quantityOfMines quantity of mines
  * @return int 0 if success, 1 if cell is opened, 5 if flag is not set, -3 if coordinates are out of field
  */
-int RemoveFlag(int[], int, const int[]);
+int RemoveFlag(int[], int, const int[], int *);

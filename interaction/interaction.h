@@ -11,7 +11,7 @@ int IsInt(const char [], int);
 *@param array[] поле
 *@return -2 если пользователь вводит некорректное значение, 0 при успешном выполнении
 */
-int PrintField(const int [], int);
+int PrintField(const int [], int, int*);
 
 /**
 *@brief LevelDifficulty функция выбора уровня сложности

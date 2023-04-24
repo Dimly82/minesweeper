@@ -22,7 +22,7 @@ int main()
         case 0:
         {
             fieldSize = 9;
-            quantityOfMines = 10;
+            quantityOfMines = 1;
             break;
         }
         case 1:
@@ -41,7 +41,7 @@ int main()
 
     while (1)
     {
-        code = PrintField(field, fieldSize);
+        code = PrintField(field, fieldSize, &quantityOfMines);
         CheckErr(code);
         int coord[2];
         code = NextMove(coord);
@@ -57,13 +57,13 @@ int main()
             }
             case 1:
             {
-                code = SetFlag(field, fieldSize, coord);
+                code = SetFlag(field, fieldSize, coord, &quantityOfMines);
                 if (CheckErr(code)) continue;
                 break;
             }
             case 2:
             {
-                code = RemoveFlag(field, fieldSize, coord);
+                code = RemoveFlag(field, fieldSize, coord, &quantityOfMines);
                 if (CheckErr(code)) continue;
                 break;
             }

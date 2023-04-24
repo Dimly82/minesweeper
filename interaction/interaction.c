@@ -15,8 +15,9 @@ int IsInt(const char str[], int size)
     return 1;
 }
 
-int PrintField(const int field[], int fieldSize)
+int PrintField(const int field[], int fieldSize, int *quantityOfMines)
 {
+    if (quantityOfMines) printf("Remaining mines: %d\n", *quantityOfMines);
     printf("\t");
     for (int i = 0; i < fieldSize; i++)
     {
@@ -117,13 +118,13 @@ int CheckGameStatus(int field[], int fieldSize, int code)
         case 2:
         {
             printf("You blew up :(\n");
-            PrintField(field, fieldSize);
+            PrintField(field, fieldSize, 0);
             return 2;
         }
         case 3:
         {
             printf("You won!\n");
-            PrintField(field, fieldSize);
+            PrintField(field, fieldSize, 0);
             PlaySound("Congratulations.wav", NULL, SND_ASYNC);
             return 3;
         }
