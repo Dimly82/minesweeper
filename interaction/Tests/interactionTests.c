@@ -15,16 +15,6 @@ int TestIsInt() {
     }
     return 0;
 }
-/**int IsInt(const char str[], int size)
-{
-    for (int i = 0; i < size; i++)
-    {
-        if (str[i] < '0' || str[i] > '9') return 0;
-        if (str[i] == '\0') break;
-    }
-
-    return 1;
-}**/
 
 int TestPrintField();
 
