@@ -119,9 +119,6 @@ int CheckGameStatus(int field[], int fieldSize, int code)
         {
             printf("You blew up :(\n");
             PrintField(field, fieldSize, 0);
-            PlaySound("You Failed!.wav", NULL, SND_ASYNC);
-            printf("Press any key to exit...\n");
-            getch();
             return 2;
         }
         case 3:
@@ -129,8 +126,6 @@ int CheckGameStatus(int field[], int fieldSize, int code)
             printf("You won!\n");
             PrintField(field, fieldSize, 0);
             PlaySound("Congratulations.wav", NULL, SND_ASYNC);
-            printf("Press any key to exit...\n");
-            getch();
             return 3;
         }
         case 4:
