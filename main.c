@@ -22,7 +22,7 @@ int main()
         case 0:
         {
             fieldSize = 9;
-            quantityOfMines = 1;
+            quantityOfMines = 10;
             break;
         }
         case 1:

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "checkErr.h"
-#include "../interaction/interaction.c"
+#include "../interaction/interaction.h"
 
 int CheckErr(int code)
 {
