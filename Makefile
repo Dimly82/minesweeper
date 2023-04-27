@@ -10,8 +10,6 @@ main.o : main.c
 field.o : ./field/field.c
 	${CC} -c ./field/field.c -o ./obj/field.o
 
-interaction.o : ./interaction/interaction.c
-	${CC} -c ./interaction/interaction.c -o ./obj/interaction.o
 
 checkErr.o : ./error/checkErr.c
 	${CC} -c ./error/checkErr.c -o ./obj/checkErr.o
