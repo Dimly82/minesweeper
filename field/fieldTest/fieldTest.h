@@ -1,17 +1,18 @@
 #include "../field.h"
+#include <stdio.h>
 
-int TestCheckForWin();
+int TestCheckForWin(char msg[]);
 
-int TestCountMinesAround();
+int TestCountMinesAround(char msg[]);
 
-int TestGenerateField();
+int TestGenerateField(char msg[]);
 
-int TestOpenAllCells();
+int TestOpenAllCells(char msg[]);
 
-int TestEmptyNearbyCells();
+int TestOpenEmptyNearbyCells(char msg[]);
 
-int TestOpenCell();
+int TestOpenCell(char msg[]);
 
-int TestSetFlag();
+int TestSetFlag(char msg[]);
 
-int TestRemoveFlag();
+int TestRemoveFlag(char msg[]);

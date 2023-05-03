@@ -78,32 +78,35 @@ int LevelDifficulty()
 
 int NextMove(int arr[])
 {
-    char comnd;
+    char comnd[100];
+
+    const char* comnd1 = "1";
+    const char* comnd2 = "2";
+    const char* comnd3 = "3";
 
     while (1)
     {
         printf("Enter the command (1 - open cell; 2 - set flag; 3 - remove flag; 4 - exit game): ");
-        scanf("%s", &comnd);
-        if ((comnd == '1') || (comnd == '2') || (comnd == '3'))
+        scanf("%s", comnd);
+
+        if ((strcmp(comnd, comnd1) == 0) || (strcmp(comnd, comnd2) == 0) || (strcmp(comnd, comnd3) == 0))
         {
-            char tmp[2] = {};
+            char tmp[10];
             printf("Enter the coordinates of the x point: ");
             scanf("%s", tmp);
-            if (!IsInt(tmp, 2)) return -4;
+            if (!IsInt(tmp, 10)) return -4;
             arr[0] = atoi(tmp);
 
             printf("Enter the coordinates of the y point: ");
             scanf("%s", tmp);
-            if (!IsInt(tmp, 2)) return -4;
+            if (!IsInt(tmp, 10)) return -4;
             arr[1] = atoi(tmp);
-            return (comnd == '1') ? 0 : (comnd == '2') ? 1 : 2;
-        } else if (comnd == '4')
-        {
-            return 3;
-        } else
-        {
-            printf("Invalid command!\n");
-        }
+
+            if (strcmp(comnd, "1") == 0) return 0;
+            if (strcmp(comnd, "2") == 0) return 1;
+            return 2;
+        } else if (strcmp(comnd, "4") == 0) return 3;
+        else printf("Invalid command!\n");
     }
 }
 
@@ -120,7 +123,7 @@ int CheckGameStatus(int field[], int fieldSize, int code)
         {
             printf("You blew up :(\n");
             PrintField(field, fieldSize, 0);
-//            PlaySound("You Failed!.wav", NULL, SND_ASYNC);
+            //PlaySound("You Failed!.wav", NULL, SND_ASYNC);
             printf("Press any key to exit...\n");
             getch();
             return 2;
@@ -151,6 +154,6 @@ int CheckGameStatus(int field[], int fieldSize, int code)
 
 void PrintError(char mas[])
 {
-    system("cls");
+//    system("cls");
     printf("%s", mas);
 }
