@@ -10,4 +10,4 @@ fieldTest.o: fieldTest.c
 	${CC} -c fieldTest.c
 
 field.o:
-	cd ../; make field.o
+	cd ../ && mingw32-make field.o

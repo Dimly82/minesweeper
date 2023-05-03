@@ -10,4 +10,4 @@ errorTest.o: errorTest.c
 	${CC} -c errorTest.c
 
 error.o:
-	cd ../; make error.o
+	cd ../ && make error.o

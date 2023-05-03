@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include "./field/field.h"
 #include "./interaction/interaction.h"
 #include "./error/checkErr.h"
@@ -47,7 +46,6 @@ int main()
         int coord[2];
         code = NextMove(coord);
         if (CheckErr(code)) continue;
-        printf("%d", code);
 
         switch (code)
         {
@@ -77,7 +75,7 @@ int main()
                 CheckErr(-9999);
         }
 
-//        system("cls");
+        system("cls");
         gCode = CheckGameStatus(field, fieldSize, code);
         if (gCode == 2 || gCode == 3) break;
     }
