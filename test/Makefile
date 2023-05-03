@@ -1,6 +1,6 @@
 CC = gcc
 
-all: fieldTest interactionTest errorTest
+all: runTest fieldTest interactionTest errorTest
 	cd ../field/fieldTest && fieldTest.exe && cd ../../ && cd ./interaction/Tests && interactionTests.exe && cd ../../ && cd ./error/errorTest && errorTest.exe && cd ../../ && cd ./run/runTest && runTest.exe && cd ../../
 
 runTest:
