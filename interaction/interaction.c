@@ -123,7 +123,7 @@ int CheckGameStatus(int field[], int fieldSize, int code)
         {
             printf("You blew up :(\n");
             PrintField(field, fieldSize, 0);
-//            PlaySound("You Failed!.wav", NULL, SND_ASYNC);
+            //PlaySound("You Failed!.wav", NULL, SND_ASYNC);
             printf("Press any key to exit...\n");
             getch();
             return 2;

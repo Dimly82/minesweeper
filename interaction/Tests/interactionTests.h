@@ -12,4 +12,6 @@ int TestCheckGameStatus();
 
 int TestPrintError();
 
+int TestError(int count);
+
 #endif
