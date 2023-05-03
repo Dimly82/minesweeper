@@ -6,6 +6,7 @@ int main()
 
     if (TestCheckErr(msg)) {
         printf("%s", msg);
+        return -1;
     }
 
     return 0;

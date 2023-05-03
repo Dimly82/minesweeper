@@ -1,7 +1,7 @@
 CC = gcc
 
 runTest: main.o runTest.o ../run.o
-	${CC} -o runTest.exe main.o runTest.o ../run.o
+	${CC} -o ../../test/runTest.exe main.o runTest.o ../run.o
 
 main.o: main.c
 	${CC} -c main.c
