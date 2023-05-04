@@ -51,7 +51,7 @@ int TestLevelDifficulty() {
     freopen("LevelDifficulty.txt", "r", stdin);
     int level = LevelDifficulty();
     fopen("LevelDifficulty.txt","r");
-    printf("\n%d",level);
+    //printf("\n%d",level);
     if (level == -1) {
         freopen("for_test.txt", "a", stdout);
         printf("\nTestLevelDifficulty: Error detected successfully\n");

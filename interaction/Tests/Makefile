@@ -1,7 +1,7 @@
 CC=gcc
 
 interactionTests : main.o interactionTests.o ../interaction.o
-	${CC} -o interactionTests.exe main.o interactionTests.o ../interaction.o
+	${CC} -o main.exe main.o interactionTests.o ../interaction.o
 
 main.o: main.c
 	${CC} -c main.c
