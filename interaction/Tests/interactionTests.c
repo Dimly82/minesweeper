@@ -94,13 +94,3 @@ int TestCheckGameStatus() {
 }
 
 
-int InteractionTest(char msg[]) {
-    if (TestIsInt() || TestPrintField() || TestLevelDifficulty() || TestNextMove() || TestCheckGameStatus())
-    {
-        sprintf(msg, "InteractionTest: Chto-to poshlo ne tak");
-        return 1;
-    }
-    return 0;
-}
-
-
