@@ -1,10 +1,13 @@
 #include "interactionTests.h"
 #include "../interaction.h"
 #include <stdio.h>
+
 //#include <unistd.h>
 //#include <cstdio>
-int count=0;
+int count = 0;
+
 int TestIsInt() {
+    freopen("for_test.txt", "w", stdout);
     const int size = 100;
     char mas[size];
     for (int i = 0; i < size; i++) {
@@ -12,17 +15,15 @@ int TestIsInt() {
     }
     mas[10] = 'a';
     if (!IsInt(mas, size)) {
-        freopen("for_test.txt", "w", stdout);
-        printf("TestIsInt:Error detected successfully\n");
-        count++;
+
+        printf("TestIsInt:Error intercepted successfully\n");
+        fclose(stdout);
+        return 0;
+    } else {
+        printf("TestIsInt: no errors\n");
         fclose(stdout);
         return 1;
     }
-    else{
-        fclose(stdout);
-        printf("TestIsInt:ERROR\n");
-    }
-    return 0;
 }
 
 int TestPrintField() {
@@ -34,32 +35,31 @@ int TestPrintField() {
     }
 
     if (PrintField(mas, size, NULL) == -2) {
+
         printf("\nTestPrintField: Error detected successfully\n");
-        count++;
+        fclose(stdout);
+        return 0;
+    } else {
+        printf("\nTestPrintField: no errors\n");
+        fclose(stdout);
         return 1;
     }
-    else{
-        fclose(stdout);
-        printf("\nTestPrintField: ERROR\n");
-    }
-    fclose(stdout);
-    return 0;
+
 }
 
 
 int TestLevelDifficulty() {
-    freopen("LevelDifficulty.txt", "r", stdin);
+    freopen("for_test.txt", "a", stdout);
+    freopen("LevelDifficulty.txt","r",stdin);
     int level = LevelDifficulty();
-    fopen("LevelDifficulty.txt","r");
-    //printf("\n%d",level);
     if (level == -1) {
-        freopen("for_test.txt", "a", stdout);
         printf("\nTestLevelDifficulty: Error detected successfully\n");
-        count++;
         fclose(stdout);
+        return 0;
     }
-    else{
+    else {
         printf("\nTestLevelDifficulty: ERROR\n");
+        fclose(stdout);
     }
 }
 
@@ -68,14 +68,14 @@ int TestNextMove() {
     const int size = 20;
     int arr[size];
     freopen("NextMove.txt", "r", stdin);
-    if (NextMove(arr)==3){
+    if (NextMove(arr) == 3) {
         printf("\nTestNextMove: The error has been fixed\n");
-        count++;
         fclose(stdout);
-    }
-    else{
-        fclose(stdout);
+        return 0;
+    } else {
         printf("\nTestNextMove: ERROR\n");
+        fclose(stdout);
+        return 1;
     }
 }
 
@@ -84,28 +84,15 @@ int TestCheckGameStatus() {
     int size = 10;
     int arr[size];
     int code = 6;
-    if (CheckGameStatus(arr, size, code) == 0 & code > 5) {
+    if (CheckGameStatus(arr, size, code) == 0 && code > 5) {
         printf("TestCheckGameStatus: Error detected successfully\n");
-        count++;
-    }
-    else{
         fclose(stdout);
-        printf("TestCheckGameStatus: ERROR\n");
+        return 0;
+    } else {
+        printf("TestCheckGameStatus: no error\n");
+        fclose(stdout);
+        return 1;
     }
-    //printf("\n1 %d",count);
-    fclose(stdout);
-    TestError(count);
-}
-int TestError(int count){
-    freopen("for_test.txt", "a", stdout);
-    //printf("\n2 %d",count);
-    if (count == 5) {
-        printf("There are no errors");
-    }
-    else{
-        printf("There are errors");
-    }
-    fclose(stdout);
 }
 
 
