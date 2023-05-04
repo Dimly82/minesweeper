@@ -1,5 +1,3 @@
-#ifndef INTERACTIONTESTS_H
-#define INTERACTIONTESTS_H
 int TestIsInt();
 
 int TestPrintField();
@@ -13,5 +11,3 @@ int TestCheckGameStatus();
 int TestPrintError();
 
 int TestError(int count);
-
-#endif
