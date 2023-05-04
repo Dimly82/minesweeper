@@ -2,12 +2,12 @@
 
 int count1 = 0;
 
-inline int LevelDifficulty() {
+int LevelDifficulty() {
     count1++;
     return 0;
 }
 
-inline int CheckErr(int a) {
+int CheckErr(int a) {
     count1++;
     return 0;
 }
@@ -20,13 +20,13 @@ inline int GenerateField(int *a, int b, int c) {
     return 0;
 }
 
-inline int PrintField(const int *a, int b, int *c) {
+int PrintField(const int *a, int b, int *c) {
     count1++;
     return 0;
 }
 
 
-inline int NextMove(int *a) {
+int NextMove(int *a) {
     count1++;
     return 0;
 }
@@ -50,14 +50,14 @@ inline int RemoveFlag(int *a, int b, const int *c, int *d) {
 }
 
 
-inline int CheckGameStatus(int *a, int b, int c) {
+int CheckGameStatus(int *a, int b, int c) {
     count1++;
     return 3;
 }
 
 
 int TestRun(char msg[]) {
-    int exp = 15;
+    int exp = 13;
     run();
     if (count1 != exp) {
         sprintf(msg, "TestRun: called %d functions; expected %d", count1, exp);

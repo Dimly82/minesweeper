@@ -1,6 +1,8 @@
 CC=gcc
 
-all: interactionTests.c interaction.o interactionTests.a
+all: interaction.o interactionTests.a
+
+interactionTests.o: interactionTests.c
 	${CC} -c interactionTests.c
 
 interaction.o:

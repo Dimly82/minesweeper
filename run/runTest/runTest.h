@@ -19,4 +19,4 @@
 //
 //inline int CheckGameStatus(int *, int, int);
 
-inline int TestRun(char[]);
+int TestRun(char[]);

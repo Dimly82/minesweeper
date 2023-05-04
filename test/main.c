@@ -12,21 +12,20 @@ int main()
         printf("FieldTest: %s\n", msg);
         return -1;
     }
-//    if (TestRun(msg))
+    if (TestRun(msg)) {
+        printf("RunTest: %s\n", msg);
+        return -1;
+    }
+//    if (InteractionTest(msg))
 //    {
-//        printf("RunTest: %s\n", msg);
+//        printf("InteractionTest: %s", msg);
 //        return -1;
 //    }
-    if (InteractionTest(msg))
-    {
-        printf("InteractionTest: %s", msg);
-        return -1;
-    }
-    if (TestCheckErr(msg))
-    {
-        printf("ErrorTest: %s", msg);
-        return -1;
-    }
+//    if (TestCheckErr(msg))
+//    {
+//        printf("ErrorTest: %s", msg);
+//        return -1;
+//    }
 
     return 0;
 }

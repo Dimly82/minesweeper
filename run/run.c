@@ -1,8 +1,8 @@
 #include "run.h"
 #include <stdlib.h>
-#include "../field/field.h"
-#include "../interaction/interaction.h"
-#include "../error/checkErr.h"
+#include "field.h"
+#include "interaction.h"
+#include "checkErr.h"
 
 void run()
 {

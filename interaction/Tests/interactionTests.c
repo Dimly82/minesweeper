@@ -93,4 +93,9 @@ int TestCheckGameStatus() {
     }
 }
 
+int InteractionTest(char msg[]) {
+    if (TestCheckGameStatus() || TestNextMove() || TestLevelDifficulty() || TestPrintField() || TestIsInt()) return 1;
+    return 0;
+}
+
 

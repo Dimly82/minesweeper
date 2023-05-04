@@ -9,3 +9,5 @@ int TestLevelDifficulty();
 int TestNextMove();
 
 int TestCheckGameStatus();
+
+int InteractionTest(char msg[]);

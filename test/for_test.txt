@@ -1,6 +1,0 @@
-	0	1	2	
-0	þ	þ	þ	
-1	þ	3	1	
-2	0	f	f	
-Choose difficulty (easy/hard): Enter the command (1 - open cell; 2 - set flag; 3 - remove flag; 4 - exit game): Invalid command!
-Enter the command (1 - open cell; 2 - set flag; 3 - remove flag; 4 - exit game): The cell is already flagged!

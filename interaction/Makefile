@@ -1,4 +1,4 @@
-CC=gcc
+CC = gcc
 
 all: interaction.o interaction.a
 

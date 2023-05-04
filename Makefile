@@ -1,9 +1,12 @@
 TARGET = minesweeper.exe
 CC = gcc
 
-all: main.o
-	cd ./test && mingw32-make all && cd ../ && ${CC} -o ./bin/${TARGET} main.o ./run/run.o ./field/field.o ./interaction/interaction.o ./error/checkErr.o -lwinmm && mingw32-make clean
+all: main.o tests
+	${CC} -o ./bin/${TARGET} main.o -L./field -L./run -L./error -L./interaction -lfield -lrun -lcheckErr -linteraction
+	mingw32-make clean
 
+tests:
+	$(MAKE) -C ./test all
 
 main.o : main.c
 	${CC} -c main.c

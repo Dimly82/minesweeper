@@ -1,6 +1,8 @@
 CC = gcc
 
-all: errorTest.c error.o errorTest.a
+all: error.o errorTest.a
+
+errorTest.o: errorTest.c
 	${CC} -c errorTest.c
 
 error.o:
