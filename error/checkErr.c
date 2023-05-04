@@ -19,7 +19,7 @@ int CheckErr(int code)
             {
                 char error[] = "\nError while printing field.\nExploding your PC..\n";
                 PrintError(error);
-                exit(-2);
+                return -2;
             }
             case -3:
             {
@@ -37,7 +37,7 @@ int CheckErr(int code)
             {
                 char error[] = "Unexpected error!\n";
                 PrintError(error);
-                exit(-492606545);
+                return -999;
             }
         }
 

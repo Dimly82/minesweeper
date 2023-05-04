@@ -33,7 +33,9 @@ void run()
             break;
         }
         default:
-            CheckErr(-9999);
+            CheckErr(-999);
+            return;
+
     }
 
     int field[fieldSize * fieldSize];
@@ -43,9 +45,11 @@ void run()
     while (1)
     {
         code = PrintField(field, fieldSize, &quantityOfMines);
-        CheckErr(code);
+        if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
+
         int coord[2];
         code = NextMove(coord);
+        if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
         if (CheckErr(code)) continue;
 
         switch (code)
@@ -53,27 +57,31 @@ void run()
             case 0:
             {
                 code = OpenCell(field, fieldSize, coord);
+                if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
                 if (CheckErr(code)) continue;
                 break;
             }
             case 1:
             {
                 code = SetFlag(field, fieldSize, coord, &quantityOfMines);
+                if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
                 if (CheckErr(code)) continue;
                 break;
             }
             case 2:
             {
                 code = RemoveFlag(field, fieldSize, coord, &quantityOfMines);
+                if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
                 if (CheckErr(code)) continue;
                 break;
             }
             case 3:
             {
-                return ;
+                return;
             }
             default:
                 CheckErr(-9999);
+                return;
         }
 
         system("cls");

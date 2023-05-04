@@ -57,7 +57,7 @@ int CheckGameStatus(int *a, int b, int c) {
 
 
 int TestRun(char msg[]) {
-    int exp = 10;
+    int exp = 15;
     run();
     if (count != exp) {
         sprintf(msg, "TestRun: called %d functions; expected %d", count, exp);
