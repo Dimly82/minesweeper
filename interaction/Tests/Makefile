@@ -10,4 +10,4 @@ interactionTests.o: interactionTests.c
 	${CC} -c interactionTests.c
 
 interaction.o:
-	cd ../; make interaction.o
+	cd ../ && make interaction.o
