@@ -4,7 +4,7 @@
 
 char arr[100] = {};
 
-void PrintError(char arr1[]) {
+inline void PrintError(char arr1[]) {
     strcpy(arr, arr1);
 }
 

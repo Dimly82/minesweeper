@@ -1,13 +1,10 @@
 CC = gcc
 
-runTest: main.o runTest.o ../run.o
-	${CC} -o runTest.exe main.o runTest.o ../run.o
-
-main.o: main.c
-	${CC} -c main.c
-
-runTest.o: runTest.c
+all: runTest.c run.o runTest.a
 	${CC} -c runTest.c
 
 run.o:
-	cd ../	&& mingw32-make run.o
+	$(MAKE) -C ../
+
+runTest.a: runTest.o
+	ar rcs librunTest.a runTest.o

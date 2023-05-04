@@ -1,7 +1,9 @@
 CC = gcc
 
-checkErr.o : checkErr.c
-	${CC} -c checkErr.c -o checkErr.o
+all: checkErr.o error.a
 
-error : checkErr.o
-	ar rcs checkErr.a checkErr.o
+checkErr.o : checkErr.c
+	${CC} -c checkErr.c
+
+error.a : checkErr.o
+	ar rcs libcheckErr.a checkErr.o

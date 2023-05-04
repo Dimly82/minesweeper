@@ -1,7 +1,9 @@
 CC = gcc
 
+all: run.o run.a
+
 run.o : run.c
 	${CC} -c run.c
 
-run : run.o
-	ar rcs run.a run.o
+run.a : run.o
+	ar rcs librun.a run.o

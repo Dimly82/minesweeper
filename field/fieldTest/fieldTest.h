@@ -16,3 +16,5 @@ int TestOpenCell(char msg[]);
 int TestSetFlag(char msg[]);
 
 int TestRemoveFlag(char msg[]);
+
+int FieldTest(char msg[]);

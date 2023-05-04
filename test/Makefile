@@ -1,16 +1,22 @@
 CC = gcc
 
-all: runTest fieldTest interactionTest errorTest
-	cd ../field/fieldTest && fieldTest.exe && cd ../../run/runTest && runTest.exe && cd ../../interaction/Tests && interactionTests.exe && cd ../../error/errorTest && errorTest.exe
+all: main
+	main.exe
+
+main: runTest fieldTest interactionTest errorTest main.o
+	${CC} -o main.exe main.o -L../field -L../field/fieldTest -L../run -L../run/runTest -L../interaction -L../interaction/Tests -L../error -L../error/errorTest -lfieldTest -lfield -linteractionTests -linteraction -lerrorTest -lcheckErr -lrunTest -lrun
+
+main.o: main.c
+	${CC} -c main.c -I../field -I../field/fieldTest -I../run -I../run/runTest -I../interaction -I../interaction/Tests -I../error -I../error/errorTest
 
 runTest:
-	cd ../run/runTest && mingw32-make
+	$(MAKE) -C ../run/runTest all
 
 fieldTest:
-	cd ../field/fieldTest && mingw32-make
+	$(MAKE) -C ../field/fieldTest all
 
 interactionTest:
-	cd ../interaction/Tests && mingw32-make
+	$(MAKE) -C ../interaction/Tests all
 
 errorTest:
-	cd ../error/errorTest && mingw32-make
+	$(MAKE) -C ../error/errorTest all

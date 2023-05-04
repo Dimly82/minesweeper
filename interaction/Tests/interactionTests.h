@@ -11,3 +11,5 @@ int TestCheckGameStatus();
 int TestPrintError();
 
 int TestError(int count);
+
+int InteractionTest(char msg[]);

@@ -1,22 +1,22 @@
 #include "../run.h"
 #include <stdio.h>
 
-int LevelDifficulty();
+//inline int LevelDifficulty();
+//
+//inline int CheckErr(int);
+//
+//inline int GenerateField(int *, int, int);
+//
+//inline int PrintField(const int *, int, int *);
+//
+//inline int NextMove(int *);
+//
+//inline int OpenCell(int *, int, const int *);
+//
+//inline int SetFlag(int *, int, const int *, int *);
+//
+//inline int RemoveFlag(int *, int, const int *, int *);
+//
+//inline int CheckGameStatus(int *, int, int);
 
-int CheckErr(int);
-
-int GenerateField(int *, int, int);
-
-int PrintField(const int *, int, int *);
-
-int NextMove(int *);
-
-int OpenCell(int *, int, const int *);
-
-int SetFlag(int *, int, const int *, int *);
-
-int RemoveFlag(int *, int, const int *, int *);
-
-int CheckGameStatus(int *, int, int);
-
-int TestRun(char[]);
+inline int TestRun(char[]);

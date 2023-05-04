@@ -1,13 +1,10 @@
 CC = gcc
 
-fieldTest: main.o fieldTest.o ../field.o
-	${CC} -o fieldTest.exe main.o fieldTest.o ../field.o
-
-main.o: main.c
-	${CC} -c main.c
-
-fieldTest.o: fieldTest.c
+all: fieldTest.c field.o fieldTest.a
 	${CC} -c fieldTest.c
 
 field.o:
-	cd ../ && mingw32-make field.o
+	$(MAKE) -C ../
+
+fieldTest.a: fieldTest.c
+	ar rcs libfieldTest.a fieldTest.o

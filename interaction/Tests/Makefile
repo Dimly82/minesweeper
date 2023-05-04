@@ -1,13 +1,10 @@
 CC=gcc
 
-interactionTests : main.o interactionTests.o ../interaction.o
-	${CC} -o interactionTests.exe main.o interactionTests.o ../interaction.o
-
-main.o: main.c
-	${CC} -c main.c
-
-interactionTests.o: interactionTests.c
+all: interactionTests.c interaction.o interactionTests.a
 	${CC} -c interactionTests.c
 
 interaction.o:
-	cd ../ && make interaction.o
+	$(MAKE) -C ../ all
+
+interactionTests.a: interactionTests.o
+	ar rcs libinteractionTests.a interactionTests.o

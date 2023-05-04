@@ -10,6 +10,11 @@ int TestCheckForWin(char msg[]) {
     return 0;
 }
 
+int TestCountMinesAround(char msg[])
+{
+    return 0; //TODO
+}
+
 int TestGenerateField(char msg[]) {
     int fieldSize = 4;
     int field[fieldSize * fieldSize];
@@ -113,5 +118,12 @@ int TestRemoveFlag(char msg[]) {
         sprintf(msg, "TestRemoveFlag: Did not increment quantityOfMines");
         return -1;
     }
+    return 0;
+}
+
+int FieldTest(char msg[]) {
+    if (TestCheckForWin(msg) || TestCountMinesAround(msg) || TestGenerateField(msg) || TestOpenAllCells(msg)
+        || TestOpenEmptyNearbyCells(msg) || TestOpenCell(msg) || TestSetFlag(msg) || TestRemoveFlag(msg)) return -1;
+
     return 0;
 }

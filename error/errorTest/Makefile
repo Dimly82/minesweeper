@@ -1,13 +1,10 @@
 CC = gcc
 
-errorTest.exe: main.o errorTest.o ../checkErr.o
-	${CC} -o errorTest.exe main.o errorTest.o ../checkErr.o
-
-main.o: main.c
-	${CC} -c main.c
-
-errorTest.o: errorTest.c
+all: errorTest.c error.o errorTest.a
 	${CC} -c errorTest.c
 
 error.o:
-	cd ../ && mingw32-make error.o
+	$(MAKE) -C ../ all
+
+errorTest.a: errorTest.o
+	ar rcs liberrorTest.a errorTest.o

@@ -1,7 +1,9 @@
 CC=gcc
 
-interaction.o: interaction.c
-	${CC} -c interaction.c -lwinmm
+all: interaction.o interaction.a
 
-interaction: interaction.o
-	ar rcs interaction.a interaction.o
+interaction.o: interaction.c
+	${CC} -c interaction.c
+
+interaction.a: interaction.o
+	ar rcs libinteraction.a interaction.o
