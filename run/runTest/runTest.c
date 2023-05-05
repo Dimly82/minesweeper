@@ -66,13 +66,13 @@ int TestRun(char msg[]) {
     FILE *expected;
     FILE *result;
 
-    expected = fopen("C:\\Users\\pdimo\\OneDrive\\Documents\\MAI\\2nd Term\\IT\\Project\\test\\runExpect.txt", "r");
+    expected = fopen(".\\runExpect.txt", "r");
     if (expected == NULL) {
         sprintf(msg, "TestRun: File with expected results not found\n");
         return -1;
     }
 
-    result = fopen("C:\\Users\\pdimo\\OneDrive\\Documents\\MAI\\2nd Term\\IT\\Project\\test\\runResult.txt", "r");
+    result = fopen(".\\runResult.txt", "r");
     if (result == NULL) {
         sprintf(msg, "TestRun: File with results not found\n");
         return -1;
