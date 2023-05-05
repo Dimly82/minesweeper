@@ -91,15 +91,15 @@ int NextMove(int arr[])
 
         if ((strcmp(comnd, comnd1) == 0) || (strcmp(comnd, comnd2) == 0) || (strcmp(comnd, comnd3) == 0))
         {
-            char tmp[10];
+            char tmp[100];
             printf("Enter the coordinates of the x point: ");
             scanf("%s", tmp);
-            if (!IsInt(tmp, 10)) return -4;
+            if (!IsInt(tmp, 100)) return -4;
             arr[0] = atoi(tmp);
 
             printf("Enter the coordinates of the y point: ");
             scanf("%s", tmp);
-            if (!IsInt(tmp, 10)) return -4;
+            if (!IsInt(tmp, 100)) return -4;
             arr[1] = atoi(tmp);
 
             if (strcmp(comnd, "1") == 0) return 0;
@@ -147,6 +147,11 @@ int CheckGameStatus(int field[], int fieldSize, int code)
             printf("The cell is already unflagged!\n");
             return 0;
         }
+        case 6:
+        {
+            printf("Finishing game process..\n");
+            return 0;
+        }
         default:
             return 0;
     }
@@ -154,6 +159,6 @@ int CheckGameStatus(int field[], int fieldSize, int code)
 
 void PrintError(char mas[])
 {
-//    system("cls");
+    system("cls");
     printf("%s", mas);
 }

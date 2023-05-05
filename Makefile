@@ -2,7 +2,7 @@ TARGET = minesweeper.exe
 CC = gcc
 
 all: main.o tests
-	${CC} -o ./bin/${TARGET} main.o -L./field -L./run -L./error -L./interaction -lfield -lrun -lcheckErr -linteraction
+	${CC} -o ./bin/${TARGET} main.o -L./run -lrun -L./error -lcheckErr -L./interaction -linteraction -L./field -lfield
 	mingw32-make clean
 
 tests:

@@ -3,7 +3,7 @@ CC = gcc
 all: run.o runTest.a
 
 runTest.o: runTest.c
-	${CC} -c runTest.c
+	${CC} -c runTest.c -I../
 
 run.o:
 	$(MAKE) -C ../ all

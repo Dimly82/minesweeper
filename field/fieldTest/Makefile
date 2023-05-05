@@ -3,7 +3,7 @@ CC = gcc
 all: field.o fieldTest.a
 
 fieldTest.o: fieldTest.c
-	${CC} -c fieldTest.c
+	${CC} -c fieldTest.c -I../
 
 field.o:
 	$(MAKE) -C ../

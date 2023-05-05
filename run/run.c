@@ -57,26 +57,27 @@ void run()
             case 0:
             {
                 code = OpenCell(field, fieldSize, coord);
-                if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
+//                if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
                 if (CheckErr(code)) continue;
                 break;
             }
             case 1:
             {
                 code = SetFlag(field, fieldSize, coord, &quantityOfMines);
-                if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
+//                if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
                 if (CheckErr(code)) continue;
                 break;
             }
             case 2:
             {
                 code = RemoveFlag(field, fieldSize, coord, &quantityOfMines);
-                if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
+//                if (CheckErr(code) == -2 || CheckErr(code) == -999) return;
                 if (CheckErr(code)) continue;
                 break;
             }
             case 3:
             {
+                CheckGameStatus(field, fieldSize, 6);
                 return;
             }
             default:

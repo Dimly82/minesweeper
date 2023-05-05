@@ -9,23 +9,24 @@ int main()
     char msg[100] = {};
     if (FieldTest(msg) == -1)
     {
-        printf("FieldTest: %s\n", msg);
+        printf("\033[0;31m""FieldTest: %s\n""\033[0m", msg);
+
         return -1;
     }
     if (TestRun(msg)) {
-        printf("RunTest: %s\n", msg);
+        printf("\033[0;31m""RunTest: %s\n""\033[0m", msg);
         return -1;
     }
-//    if (InteractionTest(msg))
-//    {
-//        printf("InteractionTest: %s", msg);
-//        return -1;
-//    }
-//    if (TestCheckErr(msg))
-//    {
-//        printf("ErrorTest: %s", msg);
-//        return -1;
-//    }
+    if (InteractionTest(msg))
+    {
+        printf("\033[0;31m""InteractionTest: %s""\033[0m", msg);
+        return -1;
+    }
+    if (TestCheckErr(msg))
+    {
+        printf("\033[0;31m""ErrorTest: %s""\033[0m", msg);
+        return -1;
+    }
 
     return 0;
 }
