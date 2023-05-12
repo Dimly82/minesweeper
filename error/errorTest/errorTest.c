@@ -11,11 +11,11 @@ int TestCheckErr(char msg[]) {
 
     struct ErrorText errors[6] = {
             {0, ""},
-            {-1, "\fYou entered wrong difficulty."},
-            {-2, "\fError while printing field. Exploding your PC.."},
-            {-3, "\fYou entered coordinates outside the field."},
-            {-4, "\fYou entered incorrect symbol."},
-            {-5, "\fUnexpected error!"},
+            {-1, "\fYou entered wrong difficulty.\n"},
+            {-2, "\fError while printing field. Exploding your PC..\n"},
+            {-3, "\fYou entered coordinates outside the field.\n"},
+            {-4, "\fYou entered incorrect symbol.\n"},
+            {-5, "\fUnexpected error!\n"},
     };
 
 
